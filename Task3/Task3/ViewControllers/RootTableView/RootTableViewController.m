@@ -23,6 +23,7 @@ static NSString *cellID = @"ImageCell";
     [self.tableView registerClass:ImageCell.self forCellReuseIdentifier:cellID];
     self.title = @"Images with URLs";
     self.navigationItem.hidesBackButton = YES;
+    self.tableView.allowsSelection = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -51,13 +52,15 @@ static NSString *cellID = @"ImageCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.image = [self.data objectAtIndex:indexPath.row];
+    
+   if (cell.imageFromUrlView.gestureRecognizers.count == 0) {
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnImage:)];
+        [cell.imageFromUrlView addGestureRecognizer:recognizer];
+        cell.imageFromUrlView.tag = indexPath.row;
+    }
+    
     [cell layoutSubviews];
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailsViewController *detailsController = [[DetailsViewController alloc] initWithImage:[self.data objectAtIndex:indexPath.row]];
-    [self.navigationController pushViewController:detailsController animated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -72,6 +75,12 @@ static NSString *cellID = @"ImageCell";
 
 - (void)scrollingFinish {
     [self loadPresentedCells];
+}
+
+- (void)didTapOnImage:(UITapGestureRecognizer *)recognizer {
+    NSUInteger tag = recognizer.view.tag;
+    DetailsViewController *detailsController = [[DetailsViewController alloc] initWithImage:[self.data objectAtIndex:tag]];
+    [self.navigationController pushViewController:detailsController animated:YES];
 }
 
 

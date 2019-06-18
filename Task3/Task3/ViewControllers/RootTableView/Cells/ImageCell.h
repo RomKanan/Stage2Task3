@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageCell : UITableViewCell
 @property (strong, nonatomic) RKImage *image;
-@property (strong, nonatomic, readonly) UIImageView *imageFromUrlView;
+@property (strong, nonatomic) UIImageView *imageFromUrlView;
 @end
 
 NS_ASSUME_NONNULL_END

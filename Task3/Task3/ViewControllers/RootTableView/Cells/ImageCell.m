@@ -10,7 +10,7 @@
 
 @interface ImageCell ()<RKImageProtocole>
 @property (strong, nonatomic) UILabel *URLLable;
-@property (strong, nonatomic) UIImageView *imageFromUrlView;
+//@property (strong, nonatomic) UIImageView *imageFromUrlView;
 
 @end
 
@@ -29,6 +29,7 @@
     if (self) {
         _URLLable = [[UILabel alloc] init];
         _imageFromUrlView = [[UIImageView alloc] init];
+        self.imageFromUrlView.userInteractionEnabled = YES;
         
         self.URLLable.numberOfLines = 0;
         [self addSubview: _URLLable];
