@@ -42,33 +42,21 @@
            [self.imageFromUrlView.heightAnchor constraintEqualToConstant:75.f],
            [self.imageFromUrlView.widthAnchor constraintEqualToConstant:110.f],
            [self.imageFromUrlView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:20.f],
-//           [self.bottomAnchor constraintGreaterThanOrEqualToAnchor:self.imageFromUrlView.bottomAnchor constant: 10.f],
-//           [self.topAnchor constraintGreaterThanOrEqualToAnchor:self.imageFromUrlView.topAnchor constant: -10],
-
-           
-     //      [self.URLLable.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
            [self.URLLable.leadingAnchor constraintEqualToAnchor:self.imageFromUrlView.trailingAnchor constant:20.f],
            [self.URLLable.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant: -20.f],
            [self.bottomAnchor constraintEqualToAnchor:self.URLLable.bottomAnchor constant:35],
            [self.topAnchor constraintEqualToAnchor:self.URLLable.topAnchor constant:-35]
            ]];
-
     }
     
     return self;
 }
 
-
-
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.URLLable.text = _image.imageURL;
-
     self.imageFromUrlView.image = self.image.IsLoaded ? _image.image: [UIImage imageNamed:@"noimage"];
-
 }
-
-
 
 - (void)imageDidUpload {
     [self layoutSubviews];

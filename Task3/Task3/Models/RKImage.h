@@ -22,7 +22,9 @@
 @property (assign, atomic, readonly) BOOL IsLoading;
 @property (assign, atomic, readonly) BOOL IsLoaded;
 @property (strong, nonatomic) id<RKImageProtocole> delegate;
+
 - (instancetype)initWithUrl:(NSString *)url;
 - (void)beginUploadImage;
+
 @end
 

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "RootTableViewController.h"
 #import "DataSource.h"
-#import <Network/Network.h>
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,14 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    RootTableViewController *rootTableVC = [[RootTableViewController alloc] init];
-    rootTableVC.data = [[DataSource alloc] init].images;
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootTableVC];
+    ViewController *defaultViewController = [ViewController new];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:defaultViewController];
     [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
     
+ 
+    
     return YES;
 }
+
+
 
 
 

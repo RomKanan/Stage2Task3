@@ -18,6 +18,8 @@
 		A0812A0322B82F2A00EAC5BB /* RKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A0222B82F2A00EAC5BB /* RKImage.m */; };
 		A0812A0F22B8D42E00EAC5BB /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A0E22B8D42E00EAC5BB /* DataSource.m */; };
 		A0812A1222B918A600EAC5BB /* UIImage+AspectRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */; };
+		A0812A1E22B932F600EAC5BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0812A1D22B932F600EAC5BB /* SystemConfiguration.framework */; };
+		A0812A2222B9401000EAC5BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A2122B9401000EAC5BB /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		A0812A0E22B8D42E00EAC5BB /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		A0812A1022B918A600EAC5BB /* UIImage+AspectRatio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectRatio.h"; sourceTree = "<group>"; };
 		A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectRatio.m"; sourceTree = "<group>"; };
+		A0812A1D22B932F600EAC5BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A0812A2022B9401000EAC5BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A0812A2122B9401000EAC5BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0812A1E22B932F600EAC5BB /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 			children = (
 				A08129DB22B82AD900EAC5BB /* Task3 */,
 				A08129DA22B82AD900EAC5BB /* Products */,
+				A0812A1C22B932F600EAC5BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,25 +82,91 @@
 			children = (
 				A08129DC22B82AD900EAC5BB /* AppDelegate.h */,
 				A08129DD22B82AD900EAC5BB /* AppDelegate.m */,
-				A08129F522B82C8800EAC5BB /* RootTableViewController.h */,
-				A08129F622B82C8800EAC5BB /* RootTableViewController.m */,
-				A08129FE22B82E3600EAC5BB /* DetailsViewController.h */,
-				A08129FF22B82E3600EAC5BB /* DetailsViewController.m */,
-				A0812A0122B82F2A00EAC5BB /* RKImage.h */,
-				A0812A0222B82F2A00EAC5BB /* RKImage.m */,
-				A08129FB22B82E0B00EAC5BB /* ImageCell.h */,
-				A08129FC22B82E0B00EAC5BB /* ImageCell.m */,
-				A0812A0D22B8D42E00EAC5BB /* DataSource.h */,
-				A0812A0E22B8D42E00EAC5BB /* DataSource.m */,
+				A0812A1822B92DDE00EAC5BB /* Models */,
+				A0812A1922B92DFA00EAC5BB /* Categories */,
+				A0812A1B22B92E3F00EAC5BB /* ViewControllers */,
 				A08129E522B82ADA00EAC5BB /* Assets.xcassets */,
 				A08129E722B82ADA00EAC5BB /* LaunchScreen.storyboard */,
 				A08129E222B82AD900EAC5BB /* Main.storyboard */,
 				A08129EA22B82ADA00EAC5BB /* Info.plist */,
 				A08129EB22B82ADA00EAC5BB /* main.m */,
+			);
+			path = Task3;
+			sourceTree = "<group>";
+		};
+		A0812A1622B92D9E00EAC5BB /* RootTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A0812A1722B92DB900EAC5BB /* Cells */,
+				A08129F522B82C8800EAC5BB /* RootTableViewController.h */,
+				A08129F622B82C8800EAC5BB /* RootTableViewController.m */,
+			);
+			path = RootTableView;
+			sourceTree = "<group>";
+		};
+		A0812A1722B92DB900EAC5BB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A08129FB22B82E0B00EAC5BB /* ImageCell.h */,
+				A08129FC22B82E0B00EAC5BB /* ImageCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A0812A1822B92DDE00EAC5BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A0812A0122B82F2A00EAC5BB /* RKImage.h */,
+				A0812A0222B82F2A00EAC5BB /* RKImage.m */,
+				A0812A0D22B8D42E00EAC5BB /* DataSource.h */,
+				A0812A0E22B8D42E00EAC5BB /* DataSource.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A0812A1922B92DFA00EAC5BB /* Categories */ = {
+			isa = PBXGroup;
+			children = (
 				A0812A1022B918A600EAC5BB /* UIImage+AspectRatio.h */,
 				A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */,
 			);
-			path = Task3;
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		A0812A1A22B92E1600EAC5BB /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				A08129FE22B82E3600EAC5BB /* DetailsViewController.h */,
+				A08129FF22B82E3600EAC5BB /* DetailsViewController.m */,
+			);
+			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		A0812A1B22B92E3F00EAC5BB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0812A1F22B93FE900EAC5BB /* DefaultVC */,
+				A0812A1622B92D9E00EAC5BB /* RootTableView */,
+				A0812A1A22B92E1600EAC5BB /* DetailVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A0812A1C22B932F600EAC5BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0812A1D22B932F600EAC5BB /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0812A1F22B93FE900EAC5BB /* DefaultVC */ = {
+			isa = PBXGroup;
+			children = (
+				A0812A2022B9401000EAC5BB /* ViewController.h */,
+				A0812A2122B9401000EAC5BB /* ViewController.m */,
+			);
+			path = DefaultVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0812A2222B9401000EAC5BB /* ViewController.m in Sources */,
 				A08129FD22B82E0B00EAC5BB /* ImageCell.m in Sources */,
 				A0812A0022B82E3600EAC5BB /* DetailsViewController.m in Sources */,
 				A0812A0322B82F2A00EAC5BB /* RKImage.m in Sources */,

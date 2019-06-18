@@ -16,19 +16,18 @@
 
 static NSString *cellID = @"ImageCell";
 
-
 @implementation RootTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:ImageCell.self forCellReuseIdentifier:cellID];
     self.title = @"Images with URLs";
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     [self loadPresentedCells];
-    
 }
 
 -(void)loadPresentedCells{
@@ -51,7 +50,6 @@ static NSString *cellID = @"ImageCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-
     cell.image = [self.data objectAtIndex:indexPath.row];
     [cell layoutSubviews];
     return cell;
