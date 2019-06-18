@@ -17,6 +17,7 @@
 		A0812A0022B82E3600EAC5BB /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08129FF22B82E3600EAC5BB /* DetailsViewController.m */; };
 		A0812A0322B82F2A00EAC5BB /* RKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A0222B82F2A00EAC5BB /* RKImage.m */; };
 		A0812A0F22B8D42E00EAC5BB /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A0E22B8D42E00EAC5BB /* DataSource.m */; };
+		A0812A1222B918A600EAC5BB /* UIImage+AspectRatio.m in Sources */ = {isa = PBXBuildFile; fileRef = A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		A0812A0222B82F2A00EAC5BB /* RKImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RKImage.m; sourceTree = "<group>"; };
 		A0812A0D22B8D42E00EAC5BB /* DataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		A0812A0E22B8D42E00EAC5BB /* DataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		A0812A1022B918A600EAC5BB /* UIImage+AspectRatio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectRatio.h"; sourceTree = "<group>"; };
+		A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectRatio.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				A08129E222B82AD900EAC5BB /* Main.storyboard */,
 				A08129EA22B82ADA00EAC5BB /* Info.plist */,
 				A08129EB22B82ADA00EAC5BB /* main.m */,
+				A0812A1022B918A600EAC5BB /* UIImage+AspectRatio.h */,
+				A0812A1122B918A600EAC5BB /* UIImage+AspectRatio.m */,
 			);
 			path = Task3;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				A08129FD22B82E0B00EAC5BB /* ImageCell.m in Sources */,
 				A0812A0022B82E3600EAC5BB /* DetailsViewController.m in Sources */,
 				A0812A0322B82F2A00EAC5BB /* RKImage.m in Sources */,
+				A0812A1222B918A600EAC5BB /* UIImage+AspectRatio.m in Sources */,
 				A08129F722B82C8800EAC5BB /* RootTableViewController.m in Sources */,
 				A0812A0F22B8D42E00EAC5BB /* DataSource.m in Sources */,
 				A08129EC22B82ADA00EAC5BB /* main.m in Sources */,

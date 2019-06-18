@@ -8,10 +8,13 @@
 
 #import "DetailsViewController.h"
 #import "RKImage.h"
+#import "UIImage+AspectRatio.h"
 
-@interface DetailsViewController ()
+
+@interface DetailsViewController ()<RKImageProtocole>
 @property (strong, nonatomic) RKImage *imageSource;
 @property (strong, nonatomic) UIScrollView *scrolView;
+@property (strong, nonatomic) UIImageView *imageView;
 @end
 
 @implementation DetailsViewController
@@ -20,16 +23,22 @@
     self = [super init];
     if (self) {
         _imageSource = image;
+        _imageSource.delegate = self;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.redColor;
+    
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(backPushed:)];
+    self.navigationItem.leftBarButtonItems = @[back];
+    self.navigationItem.hidesBackButton = YES;
+    self.title = @"Image";
+    self.view.backgroundColor = UIColor.whiteColor;
+   
     self.scrolView = [[UIScrollView alloc] init];
     self.scrolView.translatesAutoresizingMaskIntoConstraints = false;
-    self.scrolView.backgroundColor = UIColor.cyanColor;
     [self.view addSubview:self.scrolView];
    
     [NSLayoutConstraint activateConstraints:
@@ -40,17 +49,27 @@
     [self.scrolView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
     ]];
     
-    
-    UIImage *image = (self.imageSource.image)? self.imageSource.image: [UIImage imageNamed:@"noimage"];
-    self.scrolView.contentSize = image.size;
-    UIImageView *imageView = [[UIImageView alloc] initWithImage: image];
-    [self.scrolView addSubview:imageView];
+    UIImage *image = (self.imageSource.IsLoaded)? self.imageSource.image: [UIImage imageNamed:@"noimage"];
+    self.imageView = [[UIImageView alloc] initWithImage: image];
+    CGFloat imageWidth = UIScreen.mainScreen.bounds.size.width;
+    CGFloat imageHeigh = imageWidth * [image imageAspectRatio];
+    self.scrolView.contentSize = CGSizeMake(imageWidth, imageHeigh);
+    self.imageView.frame = CGRectMake(0, 0, imageWidth, imageHeigh);
+    [self.scrolView addSubview:self.imageView];
 }
 
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:YES];
-//    self.table
-//}
+- (void)imageDidUpload {
+    UIImage *image = self.imageSource.image;
+    CGFloat imageWidth = UIScreen.mainScreen.bounds.size.width;
+    CGFloat imageHeigh = imageWidth * [image imageAspectRatio];
+    self.scrolView.contentSize = CGSizeMake(imageWidth, imageHeigh);
+    self.imageView.frame = CGRectMake(0, 0, imageWidth, imageHeigh);
+    self.imageView.image = image;
+}
+
+- (void)backPushed:(id)send {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 

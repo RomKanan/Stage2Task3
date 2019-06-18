@@ -12,7 +12,6 @@
 
 
 @interface RootTableViewController ()
-//@property (strong, nonatomic) NSArray<RKImage *> *data;
 @end
 
 static NSString *cellID = @"ImageCell";
@@ -54,8 +53,6 @@ static NSString *cellID = @"ImageCell";
     ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
 
     cell.image = [self.data objectAtIndex:indexPath.row];
-    
-   // [[self.data objectAtIndex:indexPath.row] beginUploadImage];
     [cell layoutSubviews];
     return cell;
 }
@@ -78,5 +75,6 @@ static NSString *cellID = @"ImageCell";
 - (void)scrollingFinish {
     [self loadPresentedCells];
 }
+
 
 @end
