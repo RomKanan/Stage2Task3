@@ -8,13 +8,20 @@
 
 #import "ImageCell.h"
 
-@interface ImageCell ()
+@interface ImageCell ()<RKImageProtocole>
 @property (strong, nonatomic) UILabel *URLLable;
 @property (strong, nonatomic) UIImageView *imageFromUrlView;
 
 @end
 
 @implementation ImageCell
+
+- (void)setImage:(RKImage *)image{
+    if(self){
+        _image = image;
+        _image.delegate = self;
+    }
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -59,6 +66,12 @@
 
     self.imageFromUrlView.image = self.image.IsLoaded ? _image.image: [UIImage imageNamed:@"noimage"];
 
+}
+
+
+
+- (void)imageDidUpload {
+    [self layoutSubviews];
 }
 
 

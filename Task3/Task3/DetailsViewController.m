@@ -47,6 +47,11 @@
     [self.scrolView addSubview:imageView];
 }
 
+//- (void)viewDidAppear:(BOOL)animated{
+//    [super viewDidAppear:YES];
+//    self.table
+//}
+
 
 
 @end

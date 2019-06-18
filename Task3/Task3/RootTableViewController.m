@@ -23,9 +23,23 @@ static NSString *cellID = @"ImageCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:ImageCell.self forCellReuseIdentifier:cellID];
-    
-    
     self.title = @"Images with URLs";
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [self loadPresentedCells];
+    
+}
+
+-(void)loadPresentedCells{
+    NSArray *presentedIndexes = [self.tableView indexPathsForVisibleRows];
+    for (NSIndexPath *index in presentedIndexes){
+        RKImage *image = [self.data objectAtIndex:index.row];
+        if (!image.IsLoaded && !image.IsLoading) {
+            [image beginUploadImage];
+        }
+    }
 }
 
 #pragma mark - Table view data source
@@ -40,7 +54,8 @@ static NSString *cellID = @"ImageCell";
     ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
 
     cell.image = [self.data objectAtIndex:indexPath.row];
-    [[self.data objectAtIndex:indexPath.row] beginUploadImage];
+    
+   // [[self.data objectAtIndex:indexPath.row] beginUploadImage];
     [cell layoutSubviews];
     return cell;
 }
@@ -48,6 +63,20 @@ static NSString *cellID = @"ImageCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailsViewController *detailsController = [[DetailsViewController alloc] initWithImage:[self.data objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:detailsController animated:YES];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        [self scrollingFinish];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self scrollingFinish];
+}
+
+- (void)scrollingFinish {
+    [self loadPresentedCells];
 }
 
 @end
